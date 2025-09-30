@@ -69,3 +69,11 @@ S 0 0 0 G
   "gamma_turns": 0.2,
   "seed": 42
 }
+**Python API**
+'from sga import GAPathFinder, load_grid
+
+grid = load_grid("data/grid.txt")
+ga = GAPathFinder(grid, start=(0,0), goal=(4,4), move_set="8dir")
+best = ga.run(population=200, generations=300, seed=42)
+print("Cost:", best.cost, "Reached:", best.reached_goal)
+ga.plot(best)  # optional'

@@ -40,6 +40,9 @@ S 0 0 0 G
 
 ---
 
+
+---
+
 ## 🧬 Algorithm (SGA)
 - **Encoding**: chromosome = sequence of moves, e.g. `UDLR` (4-dir) or `UDLRDGSH` (8-dir).
 - **Init**: random valid/biased paths (optionally via jitter around shortest-line).
@@ -47,7 +50,7 @@ S 0 0 0 G
   `fitness = - path_length  - α * collisions  - β * manhattan_to_goal_end  - γ * turns`
 - **Selection**: tournament or roulette.
 - **Crossover**: 1-point or 2-point with repair (trim out-of-bounds tails).
-- **Mutation**: random move flip / insert/delete (with bounds & obstacle checks).
+- **Mutation**: random move flip / insert / delete (with bounds & obstacle checks).
 - **Elitism**: keep best `k` each generation.
 - **Stop**: max generations or goal reached with no collisions.
 

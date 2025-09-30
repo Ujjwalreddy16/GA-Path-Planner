@@ -47,7 +47,7 @@ S 0 0 0 G
   `fitness = - path_length  - α * collisions  - β * manhattan_to_goal_end  - γ * turns`
 - **Selection**: tournament or roulette.
 - **Crossover**: 1-point or 2-point with repair (trim out-of-bounds tails).
-- **Mutation**: random move flip / insert / delete (with bounds & obstacle checks).
+- **Mutation**: random move flip / insert/delete (with bounds & obstacle checks).
 - **Elitism**: keep best `k` each generation.
 - **Stop**: max generations or goal reached with no collisions.
 
@@ -69,11 +69,10 @@ S 0 0 0 G
   "gamma_turns": 0.2,
   "seed": 42
 }
-**Python API**
-'from sga import GAPathFinder, load_grid
+from sga import GAPathFinder, load_grid
 
 grid = load_grid("data/grid.txt")
 ga = GAPathFinder(grid, start=(0,0), goal=(4,4), move_set="8dir")
 best = ga.run(population=200, generations=300, seed=42)
-print("Cost:", best.cost, "Reached:", best.reached_goal)
-ga.plot(best)  # optional'
+print("Cost:", best. cost, "Reached:", best.reached_goal)
+ga.plot(best)  # optional

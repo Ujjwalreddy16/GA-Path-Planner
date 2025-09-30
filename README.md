@@ -11,3 +11,29 @@ The Genetic Algorithm path finding is a part of the path planner that also uses 
 ## Best individual's evolution with each generation
 <img src="shortest.png" width="400"/>
 
+# Simple Genetic Algorithm (SGA) for Path-Finding
+
+Find a near-optimal path from **Start (S)** to **Goal (G)** on a grid/maze with obstacles using a classic Genetic Algorithm.
+
+> Compact, easy to read, and ready to run for coursework, demos, or as a baseline.
+
+---
+
+## ✨ What it does
+- Searches a 2D grid for a collision-free path.
+- Optimizes path **length** + **collision penalties**.
+- Supports **cardinal** (UDLR) or **8-directional** moves.
+- Works with fixed-length genomes or variable-length with pruning.
+
+---
+
+## 🔧 Problem Format
+- Grid file (text or CSV): `0` = free, `1` = obstacle.
+- Config JSON (optional): start, goal, GA params.
+
+**Example grid.txt**
+0 0 0 0 0
+0 1 1 0 0
+0 0 0 0 0
+0 0 1 1 0
+S 0 0 0 G

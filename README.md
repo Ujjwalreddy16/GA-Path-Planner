@@ -61,8 +61,8 @@ S 0 0 0 G
 {
   "population": 200,
   "generations": 300,
-  "genome_length": 2_5x_grid_perimeter,   // rule of thumb
-  "move_set": "8dir",                      // "4dir" or "8dir"
+  "genome_length_factor": 2.5,
+  "move_set": "8dir",
   "selection": { "type": "tournament", "k": 3 },
   "crossover_rate": 0.9,
   "mutation_rate": 0.1,

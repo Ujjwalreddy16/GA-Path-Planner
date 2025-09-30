@@ -37,3 +37,35 @@ Find a near-optimal path from **Start (S)** to **Goal (G)** on a grid/maze with 
 0 0 0 0 0
 0 0 1 1 0
 S 0 0 0 G
+
+---
+
+## 🧬 Algorithm (SGA)
+- **Encoding**: chromosome = sequence of moves, e.g. `UDLR` (4-dir) or `UDLRDGSH` (8-dir).
+- **Init**: random valid/biased paths (optionally via jitter around shortest-line).
+- **Fitness** (to **maximize**):  
+  `fitness = - path_length  - α * collisions  - β * manhattan_to_goal_end  - γ * turns`
+- **Selection**: tournament or roulette.
+- **Crossover**: 1-point or 2-point with repair (trim out-of-bounds tails).
+- **Mutation**: random move flip / insert / delete (with bounds & obstacle checks).
+- **Elitism**: keep best `k` each generation.
+- **Stop**: max generations or goal reached with no collisions.
+
+---
+
+## ⚙️ Parameters (defaults)
+```json
+{
+  "population": 200,
+  "generations": 300,
+  "genome_length": 2_5x_grid_perimeter,   // rule of thumb
+  "move_set": "8dir",                      // "4dir" or "8dir"
+  "selection": { "type": "tournament", "k": 3 },
+  "crossover_rate": 0.9,
+  "mutation_rate": 0.1,
+  "elitism": 2,
+  "alpha_collision": 1000,
+  "beta_goal_dist": 5,
+  "gamma_turns": 0.2,
+  "seed": 42
+}
